@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>At Last Consulting LLC</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Josefin+Sans:wght@200;300;400&display=swap">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1B4F72; }
+    .site { background: #1B4F72; font-family: 'Josefin Sans', sans-serif; color: #e8f4ff; max-width: 680px; margin: 0 auto; }
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 40px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .nav-brand { font-family: 'Julius Sans One', sans-serif; font-size: 1rem; letter-spacing: 0.02em; color: #fff; text-transform: uppercase; }
+    .nav-link { font-family: 'Josefin Sans', sans-serif; font-size: 0.62rem; letter-spacing: 0.25em; color: rgba(255,255,255,0.4); text-decoration: none; text-transform: uppercase; }
+    .hero { position: relative; padding: 64px 40px 56px; overflow: hidden; min-height: 400px; }
+    .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+    .hero-text-bg { position: absolute; top: 0; left: 0; width: 55%; height: 100%; background: linear-gradient(to right, rgba(15,42,62,0.82) 0%, rgba(15,42,62,0.6) 70%, rgba(15,42,62,0) 100%); pointer-events: none; z-index: 1; }
+    .hero-content { position: relative; z-index: 2; }
+    .hero-eyebrow { font-family: 'Josefin Sans', sans-serif; font-size: 0.58rem; letter-spacing: 0.35em; color: rgba(255,255,255,0.5); text-transform: uppercase; margin-bottom: 28px; }
+    .hero-name { font-family: 'Julius Sans One', sans-serif; font-size: 4.2rem; letter-spacing: 0.02em; color: #fff; line-height: 1.0; text-transform: uppercase; margin-bottom: 6px; text-shadow: 0 2px 20px rgba(0,0,0,0.4); }
+    .hero-llc { font-family: 'Julius Sans One', sans-serif; font-size: 1.4rem; letter-spacing: 0.02em; color: rgba(255,255,255,0.55); text-transform: uppercase; margin-bottom: 44px; }
+    .hero-tagline { font-family: 'Josefin Sans', sans-serif; font-size: 0.88rem; font-weight: 300; letter-spacing: 0.12em; color: rgba(255,255,255,0.65); max-width: 340px; line-height: 1.9; margin-bottom: 40px; text-transform: uppercase; }
+    .hero-cta { display: inline-block; font-family: 'Josefin Sans', sans-serif; font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: #1B4F72; background: rgba(255,255,255,0.88); padding: 14px 32px; text-decoration: none; font-weight: 400; }
+    hr.rule { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 0 40px; }
+    .section { padding: 48px 40px; }
+    .section-label { font-family: 'Josefin Sans', sans-serif; font-size: 0.56rem; letter-spacing: 0.38em; color: rgba(255,255,255,0.25); text-transform: uppercase; margin-bottom: 28px; }
+    .section-body { font-family: 'Josefin Sans', sans-serif; font-size: 0.88rem; font-weight: 300; color: rgba(255,255,255,0.65); line-height: 2; max-width: 520px; }
+    .section-body p { margin-bottom: 20px; }
+    .section-body p:last-child { margin-bottom: 0; }
+    .cap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 8px; }
+    .cap { border-left: 1px solid rgba(255,255,255,0.15); padding-left: 20px; }
+    .cap-title { font-family: 'Julius Sans One', sans-serif; font-size: 0.85rem; letter-spacing: 0.02em; color: rgba(255,255,255,0.85); text-transform: uppercase; margin-bottom: 8px; }
+    .cap-desc { font-family: 'Josefin Sans', sans-serif; font-size: 0.73rem; font-weight: 300; color: rgba(255,255,255,0.42); line-height: 1.8; }
+    .eng-list { list-style: none; margin-top: 8px; }
+    .eng-list li { font-family: 'Josefin Sans', sans-serif; font-size: 0.78rem; font-weight: 300; color: rgba(255,255,255,0.55); padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; gap: 18px; letter-spacing: 0.05em; line-height: 1.7; }
+    .eng-list li::before { content: "—"; color: rgba(255,255,255,0.18); flex-shrink: 0; }
+    .contact { background: rgba(0,0,0,0.25); padding: 48px 40px; border-top: 1px solid rgba(255,255,255,0.07); }
+    .contact-heading { font-family: 'Julius Sans One', sans-serif; font-size: 1.8rem; letter-spacing: 0.02em; color: #fff; text-transform: uppercase; margin-bottom: 10px; }
+    .contact-sub { font-family: 'Josefin Sans', sans-serif; font-size: 0.73rem; font-weight: 300; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; margin-bottom: 36px; line-height: 1.9; }
+    .contact-email { font-family: 'Julius Sans One', sans-serif; font-size: 1.1rem; letter-spacing: 0.02em; color: rgba(255,255,255,0.75); text-transform: uppercase; }
+    .footer { text-align: center; padding: 20px 40px; border-top: 1px solid rgba(255,255,255,0.05); font-family: 'Josefin Sans', sans-serif; font-size: 0.55rem; letter-spacing: 0.22em; color: rgba(255,255,255,0.15); text-transform: uppercase; }
+    @media (max-width: 480px) {
+      .nav, .hero, .section, .contact { padding-left: 24px; padding-right: 24px; }
+      .hero-name { font-size: 2.8rem; }
+      .cap-grid { grid-template-columns: 1fr; }
+      hr.rule { margin: 0 24px; }
+    }
+  </style>
+</head>
+<body>
+<div class="site">
+  <nav class="nav">
+    <div class="nav-brand">At Last Consulting</div>
+    <a href="#contact" class="nav-link">Get in touch</a>
+  </nav>
+
+  <div class="hero">
+    <svg class="hero-bg" viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+          <path d="M 20 0 L 0 0 0 20" fill="none" stroke="white" stroke-width="0.25" opacity="0.25"/>
+        </pattern>
+        <pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <line x1="0" y1="0" x2="0" y2="5" stroke="white" stroke-width="0.8"/>
+        </pattern>
+      </defs>
+      <rect width="680" height="400" fill="url(#grid)"/>
+      <circle cx="480" cy="200" r="155" fill="none" stroke="white" stroke-width="1.5" opacity="0.85"/>
+      <circle cx="480" cy="200" r="128" fill="none" stroke="white" stroke-width="0.5" stroke-dasharray="6 3" opacity="0.5"/>
+      <circle cx="480" cy="200" r="90" fill="none" stroke="white" stroke-width="1.2" opacity="0.85"/>
+      <circle cx="480" cy="200" r="55" fill="none" stroke="white" stroke-width="1" opacity="0.85"/>
+      <circle cx="480" cy="200" r="22" fill="none" stroke="white" stroke-width="0.7" opacity="0.65"/>
+      <line x1="480" y1="20" x2="480" y2="380" stroke="white" stroke-width="0.4" stroke-dasharray="12 3 2 3" opacity="0.35"/>
+      <line x1="300" y1="200" x2="660" y2="200" stroke="white" stroke-width="0.4" stroke-dasharray="12 3 2 3" opacity="0.35"/>
+      <rect x="467" y="39" width="26" height="14" rx="1" fill="none" stroke="white" stroke-width="1.4" opacity="0.85"/>
+      <rect x="467" y="347" width="26" height="14" rx="1" fill="none" stroke="white" stroke-width="1.4" opacity="0.85"/>
+      <rect x="314" y="187" width="14" height="26" rx="1" fill="none" stroke="white" stroke-width="1.4" opacity="0.85"/>
+      <rect x="632" y="187" width="14" height="26" rx="1" fill="none" stroke="white" stroke-width="1.4" opacity="0.85"/>
+      <rect x="372" y="68" width="14" height="22" rx="1" fill="none" stroke="white" stroke-width="1.2" opacity="0.85" transform="rotate(-45 379 79)"/>
+      <rect x="572" y="68" width="14" height="22" rx="1" fill="none" stroke="white" stroke-width="1.2" opacity="0.85" transform="rotate(45 579 79)"/>
+      <rect x="372" y="290" width="14" height="22" rx="1" fill="none" stroke="white" stroke-width="1.2" opacity="0.85" transform="rotate(45 379 301)"/>
+      <rect x="572" y="290" width="14" height="22" rx="1" fill="none" stroke="white" stroke-width="1.2" opacity="0.85" transform="rotate(-45 579 301)"/>
+      <line x1="480" y1="178" x2="480" y2="55" stroke="white" stroke-width="0.9" opacity="0.6"/>
+      <line x1="480" y1="222" x2="480" y2="345" stroke="white" stroke-width="0.9" opacity="0.6"/>
+      <line x1="458" y1="200" x2="335" y2="200" stroke="white" stroke-width="0.9" opacity="0.6"/>
+      <line x1="502" y1="200" x2="625" y2="200" stroke="white" stroke-width="0.9" opacity="0.6"/>
+      <circle cx="480" cy="134" r="8" fill="none" stroke="white" stroke-width="0.8" opacity="0.7"/>
+      <circle cx="537" cy="165" r="8" fill="none" stroke="white" stroke-width="0.8" opacity="0.7"/>
+      <circle cx="537" cy="235" r="8" fill="none" stroke="white" stroke-width="0.8" opacity="0.7"/>
+      <circle cx="480" cy="266" r="8" fill="none" stroke="white" stroke-width="0.8" opacity="0.7"/>
+      <circle cx="423" cy="235" r="8" fill="none" stroke="white" stroke-width="0.8" opacity="0.7"/>
+      <circle cx="423" cy="165" r="8" fill="none" stroke="white" stroke-width="0.8" opacity="0.7"/>
+      <circle cx="200" cy="340" r="80" fill="none" stroke="white" stroke-width="0.9" opacity="0.5"/>
+      <circle cx="200" cy="340" r="55" fill="none" stroke="white" stroke-width="0.4" stroke-dasharray="4 2" opacity="0.35"/>
+      <circle cx="200" cy="340" r="28" fill="none" stroke="white" stroke-width="0.7" opacity="0.5"/>
+      <line x1="200" y1="245" x2="200" y2="435" stroke="white" stroke-width="0.3" stroke-dasharray="8 2 2 2" opacity="0.25"/>
+      <line x1="105" y1="340" x2="295" y2="340" stroke="white" stroke-width="0.3" stroke-dasharray="8 2 2 2" opacity="0.25"/>
+      <rect x="570" y="140" width="65" height="105" fill="url(#hatch)" stroke="white" stroke-width="0.7" opacity="0.45"/>
+      <rect x="592" y="160" width="22" height="64" fill="#1B4F72" stroke="white" stroke-width="0.7" opacity="0.45"/>
+      <text x="570" y="133" font-family="Courier New" font-size="7" fill="white" opacity="0.4">SECT. A&#8212;A</text>
+      <line x1="480" y1="368" x2="635" y2="368" stroke="white" stroke-width="0.5" opacity="0.45"/>
+      <line x1="480" y1="360" x2="480" y2="376" stroke="white" stroke-width="0.5" opacity="0.45"/>
+      <line x1="635" y1="360" x2="635" y2="376" stroke="white" stroke-width="0.5" opacity="0.45"/>
+      <text x="557" y="385" font-family="Courier New" font-size="7" fill="white" text-anchor="middle" opacity="0.45">&#216; 310</text>
+      <text x="310" y="390" font-family="Courier New" font-size="6" fill="white" opacity="0.35">TOL &#177;0.1 &#183; DWG ALC-001 &#183; REV A &#183; SCALE 1:1</text>
+    </svg>
+    <div class="hero-text-bg"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Independent Consulting &middot; Program &amp; Product Leadership</div>
+      <div class="hero-name">At Last</div>
+      <div class="hero-llc">Consulting LLC</div>
+      <p class="hero-tagline">Bringing order to complex problems.</p>
+      <a href="#contact" class="hero-cta">Start a conversation</a>
+    </div>
+  </div>
+
+  <hr class="rule"/>
+
+  <div class="section" id="about">
+    <div class="section-label">About</div>
+    <div class="section-body">
+      <p>Complex programs don't fail because the work is hard. They fail because nobody is willing to name what's broken and drive it to resolution.</p>
+      <p>At Last Consulting works with organizations that need someone to do exactly that &mdash; bring structure to ambiguity, hold teams accountable, and deliver outcomes that actually move the business forward.</p>
+      <p>We specialize in program and product delivery, PMO standup, AI transformation, and executive operations. We work best where the stakes are high, the problem isn't fully defined, and the previous approach hasn't worked.</p>
+    </div>
+  </div>
+
+  <hr class="rule"/>
+
+  <div class="section" id="capabilities">
+    <div class="section-label">What We Do</div>
+    <div class="cap-grid">
+      <div class="cap">
+        <div class="cap-title">PMO &amp; Governance</div>
+        <div class="cap-desc">Building PMO frameworks and delivery standards from scratch &mdash; giving organizations the structure they need to scale.</div>
+      </div>
+      <div class="cap">
+        <div class="cap-title">Program &amp; Product Delivery</div>
+        <div class="cap-desc">End-to-end delivery of web, mobile, and enterprise products &mdash; imposing rigor and getting stalled programs back on track.</div>
+      </div>
+      <div class="cap">
+        <div class="cap-title">AI Transformation</div>
+        <div class="cap-desc">Hands-on GenAI agent development and AI workflow automation &mdash; currently building with Claude, Copilot, and Power Platform.</div>
+      </div>
+      <div class="cap">
+        <div class="cap-title">Executive Operations</div>
+        <div class="cap-desc">Strategic partner to CEOs and senior leaders &mdash; translating ambiguous objectives into structured portfolios and measurable outcomes.</div>
+      </div>
+      <div class="cap">
+        <div class="cap-title">Responsible AI</div>
+        <div class="cap-desc">Executive Director, First Nations AI &amp; Digital Futures &mdash; responsible AI adoption and digital enablement for indigenous communities.</div>
+      </div>
+      <div class="cap">
+        <div class="cap-title">Fractional &amp; Interim</div>
+        <div class="cap-desc">Available for short and mid-term contract engagements &mdash; remote, flexible, ready to deliver immediately.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule"/>
+
+  <div class="section" id="engagements">
+    <div class="section-label">Engagement Types</div>
+    <ul class="eng-list">
+      <li>PMO standup and governance framework design for growing organizations</li>
+      <li>Interim program or product management covering a vacancy or critical delivery phase</li>
+      <li>AI transformation program management &mdash; from use case identification through production deployment</li>
+      <li>Executive operations and Chief of Staff support for founders and senior leaders</li>
+      <li>Rescue of stalled or off-track programs &mdash; immediate structure, clear priorities, delivery momentum</li>
+    </ul>
+  </div>
+
+  <div class="contact" id="contact">
+    <div class="contact-heading">Let's Talk</div>
+    <div class="contact-sub">We work with organizations across industries &mdash; remotely and on-site.</div>
+    <div class="contact-email">seattlepm@live.com</div>
+  </div>
+
+  <div class="footer">&copy; 2026 At Last Consulting LLC &middot; Michelle Boyd, MBA &middot; PMP&reg;</div>
+</div>
+</body>
+</html>
